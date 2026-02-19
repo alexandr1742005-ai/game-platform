@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styssie.developer — Портфолио</title>
+    <style>
+        /* ==================== Основные стили ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a, #1a1a1a, #2a2a2a);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 10% 20%, rgba(50, 50, 50, 0.1) 0%, transparent 20%),
+                        radial(circle at 90% 80%, rgba(30, 30, 30, 0.1) 0%, transparent 20%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* ==================== Анимированный фон ==================== */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0a0a0a, #1a1a1a, #2a2a2a);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            z-index: -2;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* ==================== Шапка ==================== */
+        .hero-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 4rem 6rem;
+            margin-bottom: 3rem;
+            z-index: 10;
+        }
+
+        .hero-text {
+            flex: 1;
+            text-align: left;
+        }
+
+        .hero-text h1 {
+            font-size: 5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff, #a0a0a0, #808080);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 30px rgba(100, 100, 100, 0.5);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 20px rgba(100, 100, 100, 0.5); }
+            to { text-shadow: 0 0 40px rgba(80, 80, 80, 0.8); }
+        }
+
+        .hero-text p {
+            font-size: 2.5rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #a0a0a0, #808080);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: textGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes textGlow {
+            0% { opacity: 0.8; }
+            100% { opacity: 1; }
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5),
+                        0 0 60px rgba(100, 100, 100, 0.3);
+            border: 3px solid rgba(80, 80, 80, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.05);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* ==================== Блок "Обо мне" (вместо навигации) ==================== */
+        .about-intro {
+            background: rgba(20, 20, 20, 0.6);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 0 6rem 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5),
+                        inset 0 0 20px rgba(50, 50, 50, 0.2);
+            border: 1px solid rgba(80, 80, 80, 0.3);
+            animation: fadeInCard 1s ease-out;
+        }
+
+        @keyframes fadeInCard {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Убрали заголовок h2 */
+
+        .about-intro p {
+            font-size: 1.4rem;
+            line-height: 1.8;
+            color: rgba(220, 220, 220, 0.9);
+            text-align: justify;
+        }
+
+        .about-intro strong {
+            color: #a0a0a0;
+            font-weight: bold;
+        }
+
+        /* ==================== Сетка 3x2 ==================== */
+        .main-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 0 6rem 3rem;
+            height: 500px;
+            animation: fadeInGrid 1s ease-out 0.5s both;
+        }
+
+        @keyframes fadeInGrid {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .grid-item {
+            position: relative;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            color: white;
+            text-decoration: none;
+            overflow: hidden;
+            border: 1px solid rgba(80, 80, 80, 0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .grid-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.2;
+            z-index: 1;
+        }
+
+        .grid-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(20, 20, 20, 0.4);
+            z-index: 2;
+            backdrop-filter: blur(10px);
+        }
+
+        .grid-item > span {
+            position: relative;
+            z-index: 3;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Фоны для ячеек (можно заменить на свои изображения) */
+        .grid-item:nth-child(1)::before { background-image: url('https://placehold.co/600x600/000000/FFFFFF?text=Skills'); }
+        .grid-item:nth-child(2)::before { background-image: url('https://placehold.co/600x600/000000/FFFFFF?text=Contact'); }
+        .grid-item:nth-child(3)::before { background-image: url('https://placehold.co/600x600/000000/FFFFFF?text=Projects'); }
+        .grid-item:nth-child(4)::before { background-image: url('https://placehold.co/600x600/000000/FFFFFF?text=Experience'); }
+        .grid-item:nth-child(5)::before { background-image: url('https://placehold.co/600x600/000000/FFFFFF?text=Empty'); }
+        .grid-item:nth-child(6)::before { background-image: url('https://placehold.co/600x600/000000/FFFFFF?text=About'); }
+
+        .grid-item:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 30px 60px rgba(80, 80, 80, 0.4);
+        }
+
+        /* ==================== Футер ==================== */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            color: rgba(200, 200, 200, 0.7);
+            margin: 3rem 6rem 0;
+            border-radius: 15px;
+            border: 1px solid rgba(80, 80, 80, 0.3);
+            font-size: 1.2rem;
+        }
+
+        /* ==================== Адаптив ==================== */
+        @media (max-width: 768px) {
+            .hero-section {
+                flex-direction: column;
+                padding: 2rem 1rem;
+                gap: 2rem;
+            }
+
+            .hero-text h1 { font-size: 2.5rem; }
+            .hero-text p { font-size: 1.5rem; }
+            .hero-image img { max-width: 300px; }
+
+            .about-intro {
+                padding: 2rem;
+                margin: 0 1rem 2rem;
+            }
+
+            .about-intro p { font-size: 1.2rem; }
+
+            .main-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(6, 1fr);
+                height: auto;
+                gap: 1.5rem;
+                margin: 0 1rem 2rem;
+            }
+
+            footer { margin: 2rem 1rem 0; font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-bg"></div>
+
+    <!-- Шапка -->
+    <section class="hero-section">
+        <div class="hero-text">
+            <h1>Styssie.developer</h1>
+            <p>Python, Flask, HTML, CSS, JS.</p>
+        </div>
+        <div class="hero-image">
+            <img src="images/coding(first).jpg" alt="Кодинг на ноутбуке">
+        </div>
+    </section>
+
+    <!-- Блок "Обо мне" (вместо навигации) -->
+    <div class="about-intro">
+        <p>
+            <strong>Опыт работы</strong><br>
+            Здавствуйте, меня зовут Александр. На данный момент совмещаю обучение в университете с интенсивной проектной практикой. В рамках разработки полноценного приложения создал с нуля аркадную игру «Snake», реализовав весь цикл — от проектирования и написания кода до тестирования и релиза. Этот опыт позволил углубить понимание принципов объектно-ориентированного программирования, логики игровых механик и управления проектом.<br><br>
+            <strong>Личные качества</strong><br>
+            Ответственность и нацеленность на результат: способен доводить задачи до завершения в установленные сроки.<br>
+            Коммуникабельность и командная работа: готов к конструктивному диалогу, умею ясно доносить идеи и учитывать обратную связь.<br>
+            Стрессоустойчивость и адаптивность: сохраняю работоспособность в условиях сжатых сроков и быстро осваиваю новые инструменты.<br>
+            Высокая обучаемость: активно самостоятельно изучаю технологии и методики, применяя их в практике.<br><br>
+            <strong>Профессиональные навыки</strong><br>
+            Языки и технологии: Python, SQL (базы данных), Flask (бэкенд-разработка), HTML/CSS/JavaScript (фронтенд).<br>
+            Инструменты и платформы: Git / GitHub (ведение репозиториев, контроль версий, командная разработка).<br>
+            Специализированные API: опыт работы с Canvas API для реализации графики и анимации в браузере.
+        </p>
+    </div>
+
+    <!-- Сетка 3x2 -->
+    <div class="main-grid">
+        <a href="skills.html" class="grid-item"><span>Навыки</span></a>
+        <a href="contact.html" class="grid-item"><span>Контакты</span></a>
+        <a href="projects.html" class="grid-item"><span>Проекты</span></a>
+        <a href="experience.html" class="grid-item"><span>Опыт</span></a>
+        <a href="#" class="grid-item"><span>Пусто</span></a>
+        <a href="about.html" class="grid-item"><span>Обо мне</span></a>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Александр. Все права защищены.</p>
+    </footer>
+
+    <!-- Скрипты -->
+    <script>
+        // Добавляем частицы
+        function createParticles() {
+            const particlesContainer = document.createElement('div');
+            particlesContainer.className = 'particles';
+            document.body.appendChild(particlesContainer);
+
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + 'vw';
+                particle.style.top = Math.random() * 100 + 'vh';
+                particle.style.animationDelay = Math.random() * 3 + 's';
+                particle.style.opacity = Math.random() * 0.5 + 0.2;
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Инициализация
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+
+            // Анимация при наведении на карточки
+            const gridItems = document.querySelectorAll('.grid-item');
+            gridItems.forEach(item => {
+                item.addEventListener('mouseenter', () => {
+                    item.style.transform = 'translateY(-10px) scale(1.05)';
+                });
+                item.addEventListener('mouseleave', () => {
+                    item.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

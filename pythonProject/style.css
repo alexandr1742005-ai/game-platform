@@ -1,0 +1,529 @@
+/* Общие настройки */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Чёрно-серый фон */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #000000 0%, #2d3748 50%, #4a5568 100%);
+    min-height: 100vh;
+    color: white;
+    padding: 1rem;
+    opacity: 0;
+    animation: fadeInIn 0.6s ease forwards;
+}
+
+/* Главный блок с двумя колонками */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 6rem 1rem;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(to bottom, #000000 0%, #2d3748 100%);
+    width: 100%;
+    max-width: none; /* Убираем ограничение */
+}
+
+/* Левая колонка: текст */
+.hero-text {
+    flex: 1;
+    max-width: 40%;
+    text-align: left;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    background: linear-gradient(to bottom, #ffffff 0%, #333333 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero-text p {
+    font-size: 1.8rem;
+    font-weight: 500;
+    background: linear-gradient(to bottom, #ffffff 0%, #333333 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Правая колонка: изображение */
+.hero-image {
+    flex: 1;
+    max-width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 700px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Навигация — прозрачная */
+nav {
+    background: transparent;
+    padding: 1rem 0;
+    text-align: center;
+    position: relative;
+    z-index: 100;
+    border: none;
+    box-shadow: none;
+}
+
+nav a {
+    color: white;
+    margin: 0 1.5rem;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.3rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+}
+
+nav a:hover {
+    color: #667eea;
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
+}
+
+/* Основной контейнер */
+.container {
+    width: 100%;
+    padding: 0 1rem;
+    margin: 0 auto;
+}
+
+/* Карточки (широкие как шапка) */
+.card {
+    background: linear-gradient(to bottom, #000000 0%, #2d3748 100%);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: white;
+    max-width: 1200px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Заголовки в карточках */
+.card h2 {
+    color: #4a5568;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+    background: linear-gradient(to bottom, #ffffff 0%, #4a5568 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 0.5rem;
+}
+
+/* Текст внутри карточек */
+.card p {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #e2e8f0;
+}
+
+/* Список навыков */
+.card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.card li {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.75rem 1.25rem;
+    margin: 0.25rem 0;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: white;
+}
+
+/* Проекты */
+.project-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.25rem;
+    margin: 1rem 0;
+    border-radius: 8px;
+    border-left: 4px solid #000;
+}
+
+.project-item h3 {
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+    font-weight: bold;
+    background: linear-gradient(to bottom, #ffffff 0%, #2d3748 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.project-item a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.project-item a:hover {
+    text-decoration: underline;
+}
+
+/* Контакты */
+.contact a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.contact a:hover {
+    text-decoration: underline;
+}
+
+/* Стиль для карточки "Обо мне" */
+.about-section {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 1rem;
+    flex-direction: column; /* Делаем колонкой */
+    height: 100%; /* Занимает всю высоту */
+}
+
+.about-section h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    background: linear-gradient(to bottom, #ffffff 0%, #4a5568 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 0.5rem;
+    margin: 0;
+    width: 100%; /* Занимает всю ширину */
+}
+
+
+.about-content {
+    flex: 1; /* Занимает всё оставшееся место */
+    padding: 1rem; /* Отступы */
+}
+
+.about-content p {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #e2e8f0;
+}
+
+.about-content h3 {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+    color: #4a5568;
+    background: linear-gradient(to bottom, #ffffff 0%, #4a5568 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.about-content ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.about-content li {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.75rem 1.25rem;
+    margin: 0.25rem 0;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: white;
+}
+/* Цвет ссылки "Подробнее" */
+.about-content a {
+    color: #667eea !important;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.about-content a:hover {
+    text-decoration: underline;
+}
+
+/* Стиль для карточки "Мои проекты" */
+.projects-section {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.projects-section h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    background: linear-gradient(to bottom, #ffffff 0%, #4a5568 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 0.5rem;
+    margin: 0;
+    min-width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.projects-content {
+    flex: 1;
+}
+
+/* Стиль для карточки "Контакты" */
+.contacts-section {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+
+.contacts-section h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    background: linear-gradient(to bottom, #ffffff 0%, #4a5568 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 0.5rem;
+    margin: 0;
+    min-width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.contacts-content {
+    flex: 1;
+}
+
+/* Цвет ссылки в контактах */
+.contacts-content a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.contacts-content a:hover {
+    text-decoration: underline;
+}
+
+/* Футер */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background: #333;
+    color: white;
+    margin-top: 2rem;
+    border-radius: 10px;
+    font-size: 1.1rem;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 2rem 1rem;
+    }
+
+    .hero-text,
+    .hero-image {
+        max-width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+
+    .hero-text p {
+        font-size: 1.2rem;
+    }
+
+    .card h2 {
+        font-size: 1.6rem;
+    }
+
+    .card p {
+        font-size: 1rem;
+    }
+
+    .card {
+        padding: 1.5rem;
+    }
+
+    .about-section {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .about-section h2 {
+        min-width: auto;
+        text-align: left;
+    }
+
+    .projects-section {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .projects-section h2 {
+        min-width: auto;
+        text-align: left;
+    }
+
+    .contacts-section {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .contacts-section h2 {
+        min-width: auto;
+        text-align: left;
+    }
+}
+
+/* Анимации */
+@keyframes fadeInIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.smooth-fade {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: smoothFade 0.8s ease-out forwards;
+}
+
+@keyframes smoothFade {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cascade-delay-1 { animation-delay: 0.1s; }
+.cascade-delay-2 { animation-delay: 0.2s; }
+.cascade-delay-3 { animation-delay: 0.3s; }
+.cascade-delay-4 { animation-delay: 0.4s; }
+.cascade-delay-5 { animation-delay: 0.5s; }
+.cascade-delay-6 { animation-delay: 0.6s; }
+
+.slide-in {
+    transform: translateX(-100%);
+    animation: slideIn 0.6s ease forwards;
+}
+
+@keyframes slideIn {
+    to { transform: translateX(0); }
+}
+
+/* Сетка 2x2 */
+.main-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 1200px) {
+    .main-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto auto;
+    }
+
+    .main-grid > div:first-child {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+    }
+}
+
+/* Убираем скролл из "Обо мне" */
+.about-content {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: visible; /* Убираем прокрутку */
+}
+
+/* Для главной страницы — "Мои проекты" */
+.projects-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 100%;
+}
+
+.projects-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.about-image {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+/* Цвет ссылки "Смотреть проекты" */
+.projects-content a {
+    color: #667eea !important;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.projects-content a:hover {
+    text-decoration: underline;
+}
